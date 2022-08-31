@@ -1,12 +1,10 @@
 // setTimeout
 // clearTimeout
+// setTimeout (function, ms); //millisecond
+//timer
 
-setTimeout (fn, ms); //millisecond
+var done = () => console.log('Finish') ;
 
-
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin git@github.com:Milvh114/interNodejs-2020.git
-git push -u origin main
+console.log('Start')
+setTimeout(done, 1000)
+console.log('Done')

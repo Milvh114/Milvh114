@@ -1,3 +1,4 @@
+// Database_design (basic)
 var classes = [
     {
     id: 0,
@@ -95,3 +96,5 @@ console.log(studentInClass);
 
 //cách in ra khác console.log(getStudentInClass('1A'));
 
+// Design database or a e-magazine website ---> trang báo điện tử
+// Design database for a e-commerce  ----> trang mua bán online

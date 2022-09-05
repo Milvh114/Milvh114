@@ -14,3 +14,4 @@ var moment = require('moment')
 
 var now = moment('2022-11-12 22:00');
 console.log(now.fromNow());  // .fromNow nó sẽ trả về còn bao nhiêu thời gian thì tới thời điểm mình cài đặt ở trên
+console.log(now.format('YYYY/MM/DD'));// có thể truyền vào định dạng cho nó, nó sẽ hiện ra theo ý bạn muốn

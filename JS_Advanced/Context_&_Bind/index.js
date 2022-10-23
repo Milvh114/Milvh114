@@ -6,16 +6,16 @@
 // 1. Global context
 // thực ra global context chỉ là 1 cái biến có các giá trị khác nhau tuỳ vào môi trường các bạn chạy.
 
-var mouse = {
-    name: 'Mickey',
-    sayHi: () => {
-        console.log('hi, my name is', this.name);
-    }
-};
-mouse.sayHi(); // context của thằng sayHi này là mouse, biến this trong hàm sayHi lúc này sẽ trỏ đến mouse
-var say = mouse.sayHi; 
-// đồng nghĩa với: say = function() { console.log...}
-say(); // nó không có context (như là mouse,...) chúng ta sẽ gọi hàm này là 1 global context
+// var mouse = {
+//     name: 'Mickey',
+//     sayHi: function() {
+//         console.log('hi, my name is', this.name);
+//     }
+// };
+// mouse.sayHi(); // context của thằng sayHi này là mouse, biến this trong hàm sayHi lúc này sẽ trỏ đến mouse
+// var say = mouse.sayHi; 
+// // đồng nghĩa với: say = function() { console.log...}
+// say(); // nó không có context (như là mouse,...) chúng ta sẽ gọi hàm này là 1 global context
 
 /*************************************************************************************************************/
 
@@ -24,23 +24,28 @@ say(); // nó không có context (như là mouse,...) chúng ta sẽ gọi hàm 
 
 // var mouse = {
 //     name: 'Mickey',
-//     sayHi: () => {
+//     sayHi: function()  { // ko dùng được arrow function
 //         console.log('hi, my name is', this.name);
 //     }
 // };
+// //mouse.sayHi();
 // var say = mouse.sayHi.bind(mouse);
-// say(); 
+// say();  
 
-// function run(cb) {
-//     console.log('run...');
-//     cb();
-// }
+/******************************************************************/
 
-// var mouse = {
-//     name: 'Mickey',
-//     sayHi: () => {
-//         console.log(this.name)
-//     }
-// };
-// run(mouse.sayHi); //---> nó sẽ ra undefined
-// run(mouse.sayHi.bind(mouse));
+function run(cb) {
+    console.log('run...');
+    cb();
+}
+
+var mouse = {
+    name: 'Mickey',
+    sayHi: function() {
+        console.log(this.name)
+    }
+};
+
+run(mouse.sayHi); //---> nó sẽ ra undefined
+run(mouse.sayHi.bind(mouse)); // khi gọi bind thì biến mouse trong bind thì biến this tương ứng với biến được truyền vào là mouse
+

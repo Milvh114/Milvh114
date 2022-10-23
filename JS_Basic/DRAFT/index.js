@@ -1,11 +1,21 @@
-array = [1,2,3,4,5,6,7,6,3,1]
-sort = {
-    odd: [],
-    even: []
+class Car {
+    constructor(brand) {
+        this.carname = brand;
+    }
+    present() {
+        return 'I have a ' + this.carname;
+    }
 }
-var a = array.reduce((curr,items) => {
-    var result = (items % 2 === 0) ? curr.even.push(items) : curr.odd.push(items);
-    return curr
-},sort)
-console.log(a)
-console.log(sort)
+
+class Model extends Car {
+    constructor(brand, mod) {
+        super(brand);
+        this.model = mod;
+    }
+    show() {
+        return this.present() + ', it is a ' + this.model;
+    }
+}
+
+let myCar = new Model("Ford", "Mustang");
+console.log(myCar.show())

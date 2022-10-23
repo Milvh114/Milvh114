@@ -81,7 +81,7 @@ var students = [
     { id: 0, name: 'Minh', height: 120, class: 0 },
     { id: 1, name: 'Linh', height: 120, class:0 },
     { id: 2, name: 'Ha', height: 120, class: 0 },
-    { id: 2, name: 'Ha', height: 120, class: 1 }
+    { id: 3, name: 'Ha', height: 120, class: 1 }
 ]
 
 

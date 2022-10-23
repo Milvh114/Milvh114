@@ -13,10 +13,12 @@
 //     }
 // };
 // mouse.sayHi(); // context của thằng sayHi này là mouse, biến this trong hàm sayHi lúc này sẽ trỏ đến mouse
-// var say = mouse.sayHi; 
-// // đồng nghĩa với: say = function() { console.log...}
+// var say = mouse.sayHi(); 
+// console.log(mouse.sayHi())
+// đồng nghĩa với: say = function() { console.log('hi, my name is', this.name)}
+// VÌ mouse.sayHi là function chứ không phải mouse.sayHi()
 // say(); // nó không có context (như là mouse,...) chúng ta sẽ gọi hàm này là 1 global context
-
+// console.log(say)
 /*************************************************************************************************************/
 
 
@@ -24,7 +26,7 @@
 
 // var mouse = {
 //     name: 'Mickey',
-//     sayHi: function()  { // ko dùng được arrow function
+//     sayHi: function()  { // ko dùng được arrow function vì có context
 //         console.log('hi, my name is', this.name);
 //     }
 // };
@@ -46,6 +48,6 @@ var mouse = {
     }
 };
 
-run(mouse.sayHi); //---> nó sẽ ra undefined
+console.log(mouse.sayHi())
+console.log(run(mouse.sayHi)); //---> nó sẽ ra undefined
 run(mouse.sayHi.bind(mouse)); // khi gọi bind thì biến mouse trong bind thì biến this tương ứng với biến được truyền vào là mouse
-
